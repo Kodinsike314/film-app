@@ -1,0 +1,99 @@
+.card_container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 15px 50px;
+}
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    min-height: 500px;
+    flex: 0 1 350px;
+    max-width: 100%;
+    height: max-content;
+    background-color: #6e4545;
+    color:aliceblue;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    
+    overflow: hidden;
+    
+    cursor: pointer;
+    transition: border 130ms ease-in;
+}
+
+.card:hover{
+    border-color: #ee6060;
+    .card_cover{
+    scale: 1.1;
+    opacity: .7;
+}
+}
+
+
+.card_cover{
+    width: 100%;
+    border-radius: 16px;
+    transition: all 130ms ease-in;
+}
+
+
+.card_content_info{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+}
+
+.card_title{
+
+}
+
+.card_direct{
+    span{
+        color: rgb(186, 206, 189);
+    }
+}
+
+.card_genres{
+
+}
+
+.card_actors{
+
+}
+
+.film-icon{
+    position: absolute;
+    display: flex;
+    right: 5px;
+    bottom: 5px;
+    gap: 5px;
+    cursor: pointer;
+    opacity: .5;
+    transition: scale 120ms ease-in;
+}
+
+.film-icon:hover{
+
+    scale: 1.2;
+}
+
+.delete-icon{
+    transition: scale 120ms ease-in;
+}
+
+.delete-icon:hover{
+    color: #7596c9;
+}
+
+.edit-icon{
+    transition: scale 120ms ease-in;
+}
+
+.edit-icon:hover{
+    color: #7596c9;
+}

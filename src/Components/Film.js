@@ -2,6 +2,14 @@ import React from "react"
 import { IoCloseCircleSharp, IoHammerSharp } from "react-icons/io5"
 
 class Film extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            editForm: false
+        }
+    }
+
     film = this.props.film
 
     render(){
@@ -18,10 +26,9 @@ class Film extends React.Component {
                     <p className="card_actors">{this.film.actors.slice(0,3).join(" • ")}</p>
                 </div>
                 <div className="film-icon">
-                    <IoCloseCircleSharp className="delete-icon"/>
-                    <IoHammerSharp className="edit-icon"/>
-                </div>
-                        
+                    <IoCloseCircleSharp className="delete-icon" onClick={() => this.props.onDelete(this.film.id)}/>
+                    <IoHammerSharp className="edit-icon" onClick={() => this.editForm = true}/>
+                </div>   
             </div>
         )
     }

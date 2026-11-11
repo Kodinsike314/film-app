@@ -27,7 +27,8 @@ class App extends React.Component {
             }
         ]
         }
-        this.addManga = this.addManga.bind(this)
+        this.addFilm = this.addFilm.bind(this)
+        this.deleteFilm = this.deleteFilm.bind(this)
   }
   render(){
     return (
@@ -35,10 +36,10 @@ class App extends React.Component {
         <Header title="Фільми"/>
         <div className="container">
           <main className="content">
-            <Films films={this.state.films}/>
+            <Films films={this.state.films} onDelete={this.deleteFilm}/>
           </main>
           <aside className="sidebar">
-            <AddManga onAdd={this.addManga} />
+            <AddManga onAdd={this.addFilm}/>
           </aside>
         </div>
         
@@ -46,9 +47,15 @@ class App extends React.Component {
     )
   }
 
-  addManga(film) {
+  addFilm(film) {
     const id = this.state.films.lenght + 1
     this.setState({films: [...this.state.films, {id, ...film}]})
+  }
+
+  deleteFilm(id) {
+    this.setState({
+      films: this.state.films.filter((el) => el.id !== id)
+    })
   }
 
 }

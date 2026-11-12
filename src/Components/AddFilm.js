@@ -1,6 +1,7 @@
 import React from "react";
 
-class AddManga extends React.Component {
+class AddFilm extends React.Component {
+    filmAdd={}
     constructor(props){
         super(props)
         this.state = {
@@ -23,17 +24,21 @@ class AddManga extends React.Component {
                 <button type="button" 
                 onClick={()=>{
                     this.myForm.reset()
-                    this.props.onAdd({
+                    this.filmAdd={
                         title: this.state.title,
                         cover: this.state.cover,
                         directedBy: this.state.directedBy,
                         genres: this.state.genres,
-                        actors: this.state.actors
-                    })}
+                        actors: this.state.actors 
+                    }
+                    if(this.props.film)
+                        this.filmAdd.id = this.props.film.id
+                    this.props.onAdd(this.filmAdd)
+                }
                 }>Добавити</button>
             </form>
         )
     }
 }
 
-export default AddManga
+export default AddFilm

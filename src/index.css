@@ -39,7 +39,9 @@ h1,h2,h3,h4,p{
   margin: 0;
 }
 
-aside form input, aside form textarea, aside form button {
+form input, 
+form textarea, 
+form button {
   box-sizing: border-box;
   width: 100%;
   padding: 15px;
@@ -52,11 +54,11 @@ aside form input, aside form textarea, aside form button {
   font-size: 15px;
 }
 
-aside form button{
+form button{
   cursor: pointer;
   transition: transform .5s ease;
 }
 
-aside form button:hover{
+form button:hover{
   transform: scale(1.05);
 }

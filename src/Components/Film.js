@@ -1,5 +1,6 @@
 import React from "react"
 import { IoCloseCircleSharp, IoHammerSharp } from "react-icons/io5"
+import AddFilm from "./AddFilm"
 
 class Film extends React.Component {
 
@@ -27,8 +28,12 @@ class Film extends React.Component {
                 </div>
                 <div className="film-icon">
                     <IoCloseCircleSharp className="delete-icon" onClick={() => this.props.onDelete(this.film.id)}/>
-                    <IoHammerSharp className="edit-icon" onClick={() => this.editForm = true}/>
+                    <IoHammerSharp className="edit-icon" onClick={() => this.setState({
+                        editForm: !this.state.editForm
+                    })}/>
                 </div>   
+
+                {this.state.editForm && <AddFilm film={this.film} onAdd={this.props.onEdit} />}
             </div>
         )
     }

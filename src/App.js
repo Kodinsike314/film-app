@@ -1,7 +1,7 @@
 import React from "react";
 import Films from "./Components/Films";
 import Header from "./Components/Header";
-import AddManga from "./Components/AddManga";
+import AddFilm from "./Components/AddFilm";
 
 
 class App extends React.Component {
@@ -29,6 +29,7 @@ class App extends React.Component {
         }
         this.addFilm = this.addFilm.bind(this)
         this.deleteFilm = this.deleteFilm.bind(this)
+        this.editFilm = this.editFilm.bind(this)
   }
   render(){
     return (
@@ -36,10 +37,10 @@ class App extends React.Component {
         <Header title="Фільми"/>
         <div className="container">
           <main className="content">
-            <Films films={this.state.films} onDelete={this.deleteFilm}/>
+            <Films films={this.state.films}  onEdit={this.editFilm} onDelete={this.deleteFilm}/>
           </main>
           <aside className="sidebar">
-            <AddManga onAdd={this.addFilm}/>
+            <AddFilm onAdd={this.addFilm}/>
           </aside>
         </div>
         
@@ -48,13 +49,22 @@ class App extends React.Component {
   }
 
   addFilm(film) {
-    const id = this.state.films.lenght + 1
-    this.setState({films: [...this.state.films, {id, ...film}]})
+    const id = this.state.films.length + 1
+    this.setState({ films: [...this.state.films, {id, ...film}] })
   }
 
   deleteFilm(id) {
     this.setState({
       films: this.state.films.filter((el) => el.id !== id)
+    })
+  }
+
+  editFilm(film) {
+    let allFilms = this.state.films
+    allFilms[film.id - 1] = film
+
+    this.setState({films: []}, ()=>{
+      this.setState({films: [...allFilms] })
     })
   }
 

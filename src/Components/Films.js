@@ -8,7 +8,7 @@ class Films extends React.Component {
             return(
                 <div className="card_container">
                     {this.props.films.map((el) => (
-                        <Film onDelete={this.props.onDelete} key={el.id} film={el}/>
+                        <Film onEdit={this.props.onEdit} onDelete={this.props.onDelete} key={el.id} film={el}/>
                     ))}
                 </div>
             )
